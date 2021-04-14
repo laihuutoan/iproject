@@ -1,0 +1,9 @@
+{
+  "name": "iproject",
+  "private": true,
+  "dependencies": {
+    "actiontext": "https://github.com/kobaltz/actiontext",
+    "website-scraper": "^4.2.3",
+    "website-scraper-puppeteer": "^0.1.5"
+  }
+}
