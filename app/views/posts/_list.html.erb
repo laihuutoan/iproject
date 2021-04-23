@@ -1,0 +1,13 @@
+<% @posts.each do |post| %>
+  <div class="post-teaser post type-post status-publish format-standard has-post-thumbnail hentry category-minimalism entry">
+    <%= link_to image_tag('post-feature-list.png', width:"230", height:"230", alt: post.title, title: post.title, loading: "lazy", class: "attachment-teaser-post-image size-teaser-post-image wp-post-image"), post, class: "wp-post-image-anchor" %>
+    <h2 class="entry-title">
+      <%= link_to post.title, post, class: "entry-title-link", rel: "bookmark" %>
+    </h2>
+    <div class="entry-content">
+      <p><%= post.short_description %></p>
+      <%= link_to 'MORE +', posts_path, class: "more-link" %>
+    </div>
+  </div>
+<% end %>
+<%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>

@@ -1,7 +1,8 @@
-<%= form_with(model: [:admin, post], local: true) do |form| %>
+<%= form_with(model: [:admin, post], local: true) do |f| %>
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: 'customMDE' %>
+    <%= f.text_field :title %>
+    <%= f.text_area :short_description %>
+    <%= f.text_area :content, id: 'customMDE' %>
   </div>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -16,7 +17,7 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
 <script>

@@ -1,0 +1,14 @@
+<% link = pagy_link_proc(pagy) %>
+
+<div class="navigation">
+  <% if pagy.prev %>
+    <div class="pagination-previous alignleft">
+      <%== link.call(pagy.prev, '« Previous Page') %>
+    </div>
+  <% end %>
+  <% if pagy.next %>
+    <div class="pagination-next alignright">
+      <%== link.call(pagy.next, 'Next Page »') %>
+    </div>
+  <% end %>
+</div>

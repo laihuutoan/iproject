@@ -1,4 +1,5 @@
 class Admin::PostsController < ApplicationController
+  include Wisper::Publisher
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /admin/posts or /admin/posts.json
@@ -25,9 +26,11 @@ class Admin::PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        publish(:post_create, @post)
         format.html { redirect_to admin_post_path(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
+        publish(:post_errors, @post)
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -64,6 +67,6 @@ class Admin::PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.fetch(:post, {}).permit(:title, :content, :state)
+      params.fetch(:post, {}).permit(:title, :short_description, :content, :state)
     end
 end

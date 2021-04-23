@@ -36,10 +36,25 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Support
+# ENV management
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Fontawesome
+gem 'font-awesome-rails'
+
+# Tracking visits
+gem 'ahoy_matey'
+
+# Pub/Sub
+gem 'wisper', '2.0.0'
+
+# Setting
+gem 'config'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -78,5 +93,14 @@ gem 'bootstrap', '~> 4.0.0'
 # Jquery
 gem 'jquery-rails'
 
-# MDE
+# Markdown editor
 gem 'simplemde-rails'
+
+# Pagination
+gem 'pagy'
+
+# Search
+gem 'searchkick'
+
+# Autosuggest search results
+gem 'autosuggest'

@@ -1,0 +1,19 @@
+<div id="footer" class="footer">
+  <div class="wrap">
+    <% if controller.controller_name == 'posts' && params[:archives].nil? %>
+      <div class="view_archives">
+        <%= link_to 'View More', posts_path(archives: true) %>
+      </div>
+    <% end %>
+    <% if controller.controller_name != 'subscribers' %>
+      <%= render "layouts/ebook" %>
+    <% end %>
+    <div class="copyright">
+      <div class="one-third first">Powered by <a href="https://www.itsite.me">AWS EC2</a></div>
+      <div class="two-thirds last">
+        <a href="https://itsite.me" target="_blank" rel="noopener" id="asymmetrical"><b>Published by </b><i>ITsite</i></a> |
+        <a href="https://itsite.me" target="_blank" rel="noopener">Site by <span class="footer-spyr">ITsite</span></a> | <a href="/policy/">© &amp; policies</a>
+      </div>
+    </div>
+  </div>
+</div>

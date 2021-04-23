@@ -16,4 +16,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require ahoy
+//= require simplemde.min
+//= require themins
 //= require_tree .

@@ -1,0 +1,35 @@
+<div class="post-123 page type-page status-publish has-post-thumbnail hentry entry">
+  <h1 class="entry-title">Blog Archives</h1>
+  <%= image_tag('blog-feature.png', width:"500", height:"333", loading:"lazy", title:"Blog feature", alt:"Blog feature", sizes:"(max-width: 500px) 100vw, 500px")%>
+  <div class="entry-content">
+    <h2 id="search">Search This Site</h2>
+    <form class="themins_search_form" action="/" method="get">
+      <input id="s" type="text" name="s" value="">
+      <input id="searchsubmit" type="submit" value="Search">
+    </form>
+    <div class="internal_page_nav">
+      <span>SKIP TO:</span> <a href="#popular">Popular Essays</a> · <a href="#all">All Essays</a>&nbsp;· <a href="#guest">Guest Essays on Other Sites</a>&nbsp;· <a href="/random">Random Essay</a>
+    </div>
+    <div class="internal_page_nav_fill"></div>
+    <h2 id="popular">Our Most Popular Essays</h2>
+    <p>
+      <% @posts.each do |post|%>
+        <%= link_to post.title, post %>
+        <br>
+      <% end %>
+    </p>
+    <h2 id="all">All Essays on Our Site</h2>
+    <p><a class="button" style="font-size: 14px;" href="/random">Random Essay</a><br></p>
+    <ul class="archive_post_list">
+      <% @posts.each do |post|%>
+        <li><%= link_to post.title, post %></li>
+      <% end %>
+    </ul>
+    <h2 id="guest">Guest Essays on Other Sites</h2>
+    <ul class="archive_post_list">
+      <% @posts.each do |post|%>
+        <li><%= link_to post.title, post, target: "_blank" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

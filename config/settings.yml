@@ -1,0 +1,29 @@
+regex:
+  password_rules:
+    only_digit: !ruby/regexp /^[0-9]+$/
+    only_character: !ruby/regexp /^[A-Za-z]+$/
+    only_special_character: !ruby/regexp /^[\!"#$%&'()*+,-./:;<=>?@[¥]^_{|}]+$/
+    white_space: !ruby/regexp /\s/
+    complexity: !ruby/regexp /(?x)^(
+        ([0-9]+[a-zA-Z\p{P}\p{S}]+[\w\p{P}\p{S}]*)|
+        ([a-zA-Z]+[0-9\p{P}\p{S}]+[\w\p{P}\p{S}]*)|
+        ([\p{P}\p{S}]+[0-9a-zA-Z]+[\w\p{P}\p{S}]*)
+      )$/
+  date_time_rules:
+    date: !ruby/regexp /\A[0-9]{4}(\/|\-)(0[1-9]|1[0-2])(\/|\-)(0[1-9]|[1-2][0-9]|3[0-1])\z/
+    date_event_contract: !ruby/regexp /\A[0-9]{4}\/(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\z/
+    date_time: !ruby/regexp /(?x)^(
+        [0-9]{4}(\/|\-)(0[1-9]|1[0-2])(\/|\-)(0[1-9]|[1-2][0-9]|3[0-1])
+        (T|\s)(2[0-3]|[01][0-9])(\:[0-5][0-9]){1,2}(\.[0-9]{1,3})?
+      )$/
+  email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  telephone: !ruby/regexp /[a-zA-Z0-9\!-/:-@¥\[-\`{-~]+/
+  employee_code: !ruby/regexp /\A[0-9]*\z/
+  file_extension: !ruby/regexp /\.(xlsx)$/i
+  integer: !ruby/regexp /\A\d+\z/
+  multiple_of_five: !ruby/regexp /^[0-5](0|5)$/
+  postal_code: !ruby/regexp /\A[0-9a-zA-Z\-.\s]*\z/
+  phone_fax: !ruby/regexp /\A[0-9\-.\+\ ]*\z/
+  seminar_path: !ruby/regexp /\/seminar\/[a-z0-9\-]+\/index\.html/
+  original_path: !ruby/regexp /\/original\/[a-z0-9\-]+\/index\.html/
+  cloudfront_path: !ruby/regexp /^https\:\/\/.+\.cloudfront\.net.+\?Expires\=[0-9]+\&Signature\=.+/

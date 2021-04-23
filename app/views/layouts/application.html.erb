@@ -7,11 +7,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="home blog custom-header header-image header-full-width full-width-content cookies-not-set">
+    <div id="wrap">
+      <%= render "layouts/header" %>
+      <div id="inner">
+        <div id="content-sidebar-wrap">
+          <div id="content" class="hfeed">
+            <%= render "layouts/about" %>
+            <%= render "layouts/subscriber" %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>

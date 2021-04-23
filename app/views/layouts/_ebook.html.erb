@@ -1,0 +1,32 @@
+<div class="after-post-area widget-area">
+  <div id="custom_html-7" class="widget_text eop-subscribe no-min-height widget widget_custom_html">
+    <div class="widget_text widget-wrap">
+      <div class="textwidget custom-html-widget">
+        <%= image_tag('book.png', width:"156", height:"334", alt:"16 Rules for Living with Less", style:"margin-top: -14px; margin-bottom: 20px;")%>
+        <div class="eop-subscribe-content">
+          <span class="highlight" style="margin-top: 0;">Free Ebook</span>
+          <h3>Minimalist Rulebook</h3>
+
+          <p>Download our 16 rules for living with less in this beautifully designed ebook.</p>
+
+          <div class="gf_browser_safari gf_browser_iphone gform_wrapper eop_wrapper" id="gform_wrapper_20">
+            <%= form_with model: @subscriber, local: true, id: 'gform_20' do |f| %>
+              <div class="gform_body">
+                <ul id="gform_fields_20" class="gform_fields top_label form_sublabel_below description_below">
+                  <li id="field_20_1" class="gfield gfield_contains_required field_sublabel_below field_description_below hidden_label gfield_visibility_visible">
+                    <div class="ginput_container ginput_container_email">
+                      <%= f.text_field :email, class: 'medium', placeholder: "Your Email" %>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="gform_footer top_label">
+                <%= f.submit 'Submit', class: 'gform_button button', id: "gform_submit_button_20" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
