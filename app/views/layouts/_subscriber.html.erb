@@ -33,7 +33,10 @@
         <a href="/" class="parent-menu-item fa fa-search" aria-label="Search"><span>Search</span></a>
         <ul class="sub-menu">
           <li class="menu-item">
-            <form class="themins_search_form" action="/" method="get"><input id="s" type="text" name="s" value="" placeholder="Search" /> <input id="searchsubmit" type="submit" value="Go" /></form>
+            <%= form_with url: posts_path, method: :get, local: true, class: 'themins_search_form' do |f| %>
+              <%= f.text_field :query, placeholder: 'Search' %>
+              <%= f.submit 'Go', id: 'searchsubmit' %>
+            <% end %>
           </li>
         </ul>
       </li>

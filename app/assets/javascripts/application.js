@@ -19,4 +19,6 @@
 //= require ahoy
 //= require simplemde.min
 //= require themins
+//= require typeahead.bundle
+//= require custom
 //= require_tree .

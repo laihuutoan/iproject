@@ -1,3 +1,6 @@
+<% if params[:commit].present? %>
+  Search results for: <span class="post-query"><%= params[:query].present? ? params[:query] : 'All' %></span>
+<% end %>
 <% @posts.each do |post| %>
   <div class="post-teaser post type-post status-publish format-standard has-post-thumbnail hentry category-minimalism entry">
     <%= link_to image_tag('post-feature-list.png', width:"230", height:"230", alt: post.title, title: post.title, loading: "lazy", class: "attachment-teaser-post-image size-teaser-post-image wp-post-image"), post, class: "wp-post-image-anchor" %>

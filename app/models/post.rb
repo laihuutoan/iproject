@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   include AASM
+  include PostSearch
 
   enum tags: [:popular, :suggestion, :guest]
 

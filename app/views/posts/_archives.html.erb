@@ -3,13 +3,17 @@
   <%= image_tag('blog-feature.png', width:"500", height:"333", loading:"lazy", title:"Blog feature", alt:"Blog feature", sizes:"(max-width: 500px) 100vw, 500px")%>
   <div class="entry-content">
     <h2 id="search">Search This Site</h2>
-    <form class="themins_search_form" action="/" method="get">
-      <input id="s" type="text" name="s" value="">
-      <input id="searchsubmit" type="submit" value="Search">
-    </form>
+    <%= form_with url: posts_path, method: :get, local: true, class: 'themins_search_form' do |f| %>
+      <%= f.hidden_field :type, value: 'archives' %>
+      <%= f.text_field :query %>
+      <%= f.submit 'Search', id: 'searchsubmit' %>
+    <% end %>
     <div class="internal_page_nav">
       <span>SKIP TO:</span> <a href="#popular">Popular Essays</a> · <a href="#all">All Essays</a>&nbsp;· <a href="#guest">Guest Essays on Other Sites</a>&nbsp;· <a href="/random">Random Essay</a>
     </div>
+    <% if params[:commit].present? %>
+      Search results for: <span class="post-query"><%= params[:query].present? ? params[:query] : 'All' %></span>
+    <% end %>
     <div class="internal_page_nav_fill"></div>
     <h2 id="popular">Our Most Popular Essays</h2>
     <p>
