@@ -10,6 +10,41 @@ a:hover {
   color: black;
 }
 
-.post-query {
+.post-query, #notice {
   color: #CC0000;
+}
+
+#user_email, #user_password, #user_password_confirmation, #post_title {
+  width: 100%;
+  height: 42px;
+}
+
+#post_short_description {
+  width: 100%;
+  height: 84px;
+  padding: 6px;
+}
+
+form {
+  font-family: Palatino,'Times New Roman','Times','Georgia',serif;
+}
+
+form .field {
+  margin-top: 10px;
+}
+
+#post_short_description, #post_title {
+  font-size: 15px;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+label[for='post_feature_image'] {
+  cursor: pointer;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #CC0000;
 }

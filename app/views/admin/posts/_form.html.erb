@@ -1,12 +1,29 @@
-<%= form_with(model: [:admin, post], local: true) do |f| %>
-  <div class="field">
+<%= form_with model: [:admin, post], local: true do |f| %>
+  <div class='field'>
     <%= f.text_field :title %>
+  </div>
+  <div class='field'>
+    <div class='custom-control custom-switch'>
+      <%= f.check_box :state, {class: 'custom-control-input', checked: f.object.published?}, :published, :draft %>
+      <label class='custom-control-label' for='post_state'>Published</label>
+    </div>
+  </div>
+  <div class='field'>
     <%= f.text_area :short_description %>
+  </div>
+  <div class='field'>
+    <label for='post_feature_image'>
+      <%= image_tag(f.object.feature_image.attached? ? f.object.feature_image : 'preview.png', id: 'post_feature_image_preview') %>
+      <%= f.file_field :feature_image, style: 'display:none' %>
+    </label>
+  </div>
+  <div class='field'>
     <%= f.text_area :content, id: 'customMDE' %>
   </div>
+
   <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(post.errors.count, 'error') %> prohibited this post from being saved:</h2>
 
       <ul>
       <% post.errors.full_messages.each do |message| %>
@@ -16,10 +33,14 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class='actions'>
     <%= f.submit %>
   </div>
 <% end %>
 <script>
-  var simplemde = new SimpleMDE({ element: document.getElementById("customMDE") });
+  var simplemde = new SimpleMDE({
+    element: document.getElementById('customMDE'),
+    toolbar: ['bold', 'italic', 'strikethrough', 'heading-1', 'heading-2', 'heading-3', '|', 'code', 'quote', 'unordered-list', 'ordered-list', 'table', 'horizontal-rule', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'undo', 'redo'],
+    placeholder: 'Type here...'
+  });
 </script>

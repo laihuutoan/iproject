@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :short_description
       t.text :content
       t.string :state
+      t.string :feature_image
       t.boolean :is_feature
       t.integer :created_by_id
       t.integer :updated_by_id

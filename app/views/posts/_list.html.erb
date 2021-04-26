@@ -3,7 +3,7 @@
 <% end %>
 <% @posts.each do |post| %>
   <div class="post-teaser post type-post status-publish format-standard has-post-thumbnail hentry category-minimalism entry">
-    <%= link_to image_tag('post-feature-list.png', width:"230", height:"230", alt: post.title, title: post.title, loading: "lazy", class: "attachment-teaser-post-image size-teaser-post-image wp-post-image"), post, class: "wp-post-image-anchor" %>
+    <%= link_to image_tag(post.feature_image.attached? ? post.feature_image.variant(resize: "230x230^", crop: '230x230+0+0') : 'post-feature-list.png', width:"230", height:"230", alt: post.title, title: post.title, loading: "lazy", class: "attachment-teaser-post-image size-teaser-post-image wp-post-image"), post, class: "wp-post-image-anchor" %>
     <h2 class="entry-title">
       <%= link_to post.title, post, class: "entry-title-link", rel: "bookmark" %>
     </h2>

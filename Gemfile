@@ -102,5 +102,8 @@ gem 'pagy'
 # Search
 gem 'searchkick'
 
-# Autosuggest search results
-gem 'autosuggest'
+# Read times
+gem 'readingtime'
+
+# Image processing
+gem 'mini_magick'

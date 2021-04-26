@@ -2,11 +2,18 @@
 
 <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-minimalism entry">
   <h1 class="entry-title"><%= @post.title %></h1>
-  <div class="post-info">By <span class="author vcard"><span class="fn"><a href="https://www.theminimalists.com/about/#jfm" rel="author external">Joshua Fields Millburn</a></span></span> · <span class="follow-links">Follow: <a href="https://facebook.com/theminimalists" target="_blank" rel="noopener">Facebook</a>, <a href="https://twitter.com/JFM" target="_blank" rel="noopener">Twitter</a>, <a href="https://instagram.com/joshuafieldsmillburn" target="_blank" rel="noopener">Instagram</a></span></div>
-  <img width="500" height="333" src="https://www.theminimalists.com/wp-content/uploads/2021/04/isaac-quesada-6P3OpQDbL3Y-unsplash-2-500x333.jpg" class="attachment-post-image size-post-image wp-post-image" alt="" loading="lazy" title="Photo by Isaac Quesada" srcset="https://www.theminimalists.com/wp-content/uploads/2021/04/isaac-quesada-6P3OpQDbL3Y-unsplash-2-500x333.jpg 500w, https://www.theminimalists.com/wp-content/uploads/2021/04/isaac-quesada-6P3OpQDbL3Y-unsplash-2-300x200.jpg 300w, https://www.theminimalists.com/wp-content/uploads/2021/04/isaac-quesada-6P3OpQDbL3Y-unsplash-2-1024x683.jpg 1024w, https://www.theminimalists.com/wp-content/uploads/2021/04/isaac-quesada-6P3OpQDbL3Y-unsplash-2-768x512.jpg 768w, https://www.theminimalists.com/wp-content/uploads/2021/04/isaac-quesada-6P3OpQDbL3Y-unsplash-2-1536x1024.jpg 1536w, https://www.theminimalists.com/wp-content/uploads/2021/04/isaac-quesada-6P3OpQDbL3Y-unsplash-2-2048x1365.jpg 2048w" sizes="(max-width: 500px) 100vw, 500px">
+  <div class="post-info">
+    <span class="author vcard"><span class="fn"><%= @post.created_at.strftime("%b #{@post.created_at.day.ordinalize}, %Y") %></span></span> ·
+    <% if @post.author.present? %>
+      By <span class="author vcard"><span class="fn"><%= @post.author.full_name %></span></span> ·
+    <% end %>
+    <span class="follow-links"><%= @post.content.reading_time %> min read</span>
+  </div>
+  <% if @post.feature_image.attached? %>
+    <%= image_tag url_for(@post.feature_image), class: "attachment-post-image size-post-image wp-post-image", alt: @post.title, width: "500", height: "333", title: @post.title, sizes: "(max-width: 500px) 100vw, 500px" %>
+  <% end %>
   <div class="entry-content">
     <%= @post.content %>
   </div>
 </div>
 <%= render "share", post: @post %>
-<%= link_to 'Back', posts_path %>

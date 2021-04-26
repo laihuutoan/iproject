@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Admin Posts</h1>
+<h1>All Posts <%= link_to 'New', new_admin_post_path %></h1>
 
 <table>
   <thead>
@@ -12,14 +12,9 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to 'Show', admin_post_path(post) %></td>
-        <td><%= link_to 'Edit', edit_admin_post_path(post) %></td>
+        <td><%= link_to post.title, edit_admin_post_path(post) %></td>
         <td><%= link_to 'Destroy', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Admin Post', new_admin_post_path %>
