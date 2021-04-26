@@ -1,0 +1,15 @@
+<div class="card ml-4">
+  <div class="card-body">
+    <div class="d-flex">
+      <div class="mr-2">
+        <%= image_tag reply.author.image, alt: "Avatar", title: reply.author.full_name, class: "avatar avatar--md avatar-list" %>
+      </div>
+      <div class="w-100">
+        <p class="commentor mb-0">
+          <%= reply.author.full_name %> <span class="post-info">on <%= reply.created_at.strftime("%b #{reply.created_at.day.ordinalize}, %Y") %></span>
+        </p>
+        <%= reply.body %>
+      </div>
+    </div>
+  </div>
+</div>

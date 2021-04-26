@@ -13,6 +13,7 @@ class User < ApplicationRecord
       user = User.create(full_name: data['name'],
         email: data['email'],
         password: Devise.friendly_token[0,20],
+        image: data.image,
         uid: access_token[:uid],
         provider: access_token[:provider]
       )

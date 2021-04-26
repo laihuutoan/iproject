@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   include PostSearch
 
   has_one_attached :feature_image
-
   belongs_to :author, class_name: 'User', foreign_key: :created_by_id, required: false
+  has_many :comments
 
   enum tags: [:popular, :suggestion, :guest]
 

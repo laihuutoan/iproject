@@ -1,0 +1,40 @@
+<p class="font-weight-bold">Comments</p>
+<% if current_user.present? %>
+  <div class="card">
+    <div class="card-body">
+      <%= form_with model: [@post, @post.comments.build] do |f| %>
+        <div class="d-flex">
+          <div class="mr-2">
+            <%= image_tag current_user.image, alt: "Avatar", title: current_user.full_name, class: "avatar avatar--md" %>
+          </div>
+          <div class="w-100">
+            <%= f.text_area :body, class: 'form-control', placeholder: 'Write a response...' %>
+            <%= f.submit 'Post comment', class: 'btn btn-primary comment-submit' %>
+          </div>
+          <%= f.hidden_field :created_by_id, value: current_user.id %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="comment-threads">
+    <% if @post.comments.count > 0 %>
+      <%= render @post.comments %>
+    <% else %>
+      <div class="card card-block text-sm-center">
+        <span class="card-text text-muted mt-05 mb-05"><i aria-hidden="true" class="fa fa-comment-o"></i>
+        No comments, yet.
+        </span>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <%= link_to new_user_session_path, class: "login-to-comment" do %>
+    <div class="card text-sm-center mb-1">
+      <div class="card-body">
+        <span class="card-text text-muted"><i aria-hidden="true" class="fa fa-comment-o"></i>
+        Login to comment
+        </span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,19 @@
+<div class="card ml-4">
+  <div class="card-body">
+    <%= form_with model: [@post, @comment] do |f| %>
+      <%= f.hidden_field :parent_id %>
+      <%= f.hidden_field :created_by_id, value: current_user.id %>
+      <div class="d-flex">
+        <div class="mr-2">
+          <%= image_tag current_user.image, alt: "Avatar", title: current_user.full_name, class: "avatar avatar--md" %>
+        </div>
+        <div class="w-100">
+          <%= f.label 'Reply' %>
+          <%= f.text_area :body, class: 'form-control', placeholder: 'Write a response...' %>
+          <%= f.submit 'Reply', class: 'btn btn-primary reply-submit' %>
+          <%= link_to 'Discard', post_path(@post), class: 'btn btn-secondary reply-submit reply-submit-discard' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -9,15 +9,8 @@
 <div id="nav">
   <div class="wrap">
     <ul class="menu genesis-nav-menu menu-primary">
-      <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
-        <a href="/">Blog</a>
-        <ul class="sub-menu">
-          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Start Here</a></li>
-          <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/">Popular Essays</a></li>
-          <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/">All Essays</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/">30-Day Minimalism Game</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/">How to Start a Blog</a></li>
-        </ul>
+      <li class="menu-item menu-item-type-post_type menu-item-object-page">
+        <%= link_to 'Blog', posts_path %>
       </li>
       <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Podcast</a></li>
       <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Books</a></li>
@@ -37,7 +30,30 @@
           <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Contact</a></li>
         </ul>
       </li>
-      <li class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" rel="noopener" href="/">Patreon</a></li>
+      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+        <% if user_signed_in? %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
+          <ul class="sub-menu">
+            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+              <div class="d-flex">
+                <div class="mr-2 ml-2" style="margin-top: 12px;">
+                  <%= image_tag current_user.image, alt: "Avatar", title: current_user.full_name, class: "avatar avatar--md" %>
+                </div>
+                <div class="w-100 user-name">
+                  <%= current_user.full_name %>
+                </div>
+              </div>
+            </li>
+          </ul>
+        <% else %>
+          <%= link_to 'Sign in', new_user_session_path %>
+          <ul class="sub-menu">
+            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+              <%= link_to "Via #{OmniAuth::Utils.camelize(:google_oauth2)}", omniauth_authorize_path(:user, :google_oauth2), method: :post %>
+            </li>
+          </ul>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

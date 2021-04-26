@@ -48,3 +48,77 @@ label[for='post_feature_image'] {
 .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #CC0000;
 }
+
+.comment-threads {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.card:not(.card-reply) {
+  margin-bottom: 10px;
+}
+
+.login-to-comment {
+  text-decoration: auto;
+  &:hover {
+    text-decoration: auto;
+  }
+}
+
+.comment-submit, .reply-submit {
+  float: right;
+  margin-top: 10px;
+  height: 30px !important;
+}
+
+.reply-submit-discard {
+  background: #fff;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover {
+    background: #fff;
+    color: #000;
+  }
+}
+
+.avatar--md {
+  width: 37px;
+  max-height: 37px;
+}
+
+.avatar {
+  display: block;
+  width: 37px;
+  height: auto;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.avatar-list {
+  width: 20px;
+  margin-top: 2px;
+}
+
+.user-name {
+  cursor: pointer;
+  background: #000;
+  border: none;
+  color: #999;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  opacity: 0.9999;
+  padding: 12px 18px;
+  text-align: left;
+  text-transform: uppercase;
+  &:hover {
+    opacity: 1;
+    color: #fff;
+  }
+}
