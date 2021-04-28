@@ -1,3 +1,6 @@
+page:
+  title: ITsite
+  email: laihuutoan@gmail.com
 regex:
   password_rules:
     only_digit: !ruby/regexp /^[0-9]+$/
