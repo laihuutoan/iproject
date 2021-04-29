@@ -41,7 +41,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Fontawesome
-gem 'font-awesome-rails'
+# gem 'font-awesome-rails'
+gem 'font_awesome5_rails'
 
 # Tracking visits
 gem 'ahoy_matey'
@@ -107,3 +108,9 @@ gem 'readingtime'
 
 # Image processing
 gem 'mini_magick'
+
+# Friendly URL
+gem 'friendly_id', '~> 5.4.0'
+
+# Votable
+gem 'acts_as_votable'

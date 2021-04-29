@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Ahoy::Engine => "/ahoy", as: :iproject_ahoy
+
   resources :comments
   root "posts#index"
 
@@ -6,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show] do
     resources :comments
+    collection do
+      get :like
+    end
   end
   resources :subscribers
   namespace :admin do

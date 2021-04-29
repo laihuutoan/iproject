@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.new(parent_id: params[:parent_id])
   end
 
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
 
     respond_to do |format|

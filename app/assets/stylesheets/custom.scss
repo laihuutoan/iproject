@@ -41,7 +41,7 @@ form .field {
   margin-top: 10px;
 }
 
-label[for='post_feature_image'] {
+label[for='post_feature_image'], .post-info span {
   cursor: pointer;
 }
 
@@ -121,4 +121,16 @@ label[for='post_feature_image'] {
     opacity: 1;
     color: #fff;
   }
+}
+
+#menu-social .parent-menu-item {
+  font-size: 18px;
+}
+
+#menu-social li {
+  margin-top: 12px;
+}
+
+.login-to-comment i, .comment-threads i {
+  font-size: 14px;
 }
