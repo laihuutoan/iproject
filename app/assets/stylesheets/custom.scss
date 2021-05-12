@@ -41,7 +41,7 @@ form .field {
   margin-top: 10px;
 }
 
-label[for='post_feature_image'], .post-info span {
+label[for='post_feature_image'], label[for='post_feature_image_mobile'], .post-info span {
   cursor: pointer;
 }
 
@@ -133,4 +133,36 @@ label[for='post_feature_image'], .post-info span {
 
 .login-to-comment i, .comment-threads i {
   font-size: 14px;
+}
+
+.login-to-comment {
+  .card-body {
+    text-align: center;
+  }
+}
+
+#footer .two-thirds.last {
+  float: right;
+}
+
+.about-detail {
+  text-align: justify;
+}
+
+.mobile-only img {
+  padding-right: 0;
+}
+
+@media only screen and (max-width:520px) {
+  #menu-social li {
+    margin-top: 0;
+  }
+  .parent-menu-item {
+    height: 40px !important;
+  }
+}
+
+.first-post {
+  border-top: none;
+  padding-top: 0;
 }

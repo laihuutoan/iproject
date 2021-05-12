@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_044651) do
     t.text "content"
     t.string "state"
     t.string "feature_image"
+    t.string "feature_image_mobile"
     t.boolean "is_feature"
     t.integer "created_by_id"
     t.integer "updated_by_id"

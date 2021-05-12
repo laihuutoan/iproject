@@ -2138,13 +2138,13 @@ body .spyr_sliding_share .spyr_sliding_share_wrap .sliding-share-button.ssb-pint
     border-top: 1px solid #d1d1d1;
     clear: both;
     font-size: 15px;
-    padding-top: 60px;
+    padding-top: 40px;
 }
 
 .post-teaser .wp-post-image-anchor {
     display: block;
     float: right;
-    margin: 0 0 50px 20px;
+    margin: 0 0 30px 20px;
 }
 
 .post-teaser .entry-title {
@@ -4065,7 +4065,7 @@ body .gform_wrapper .gform_ajax_spinner {
 
 .mobile-only,
 .only-mobile {
-    display: none;
+    display: none !important;
 }
 
 .desktop-only,
@@ -4223,11 +4223,11 @@ body .gform_wrapper .gform_ajax_spinner {
     /* Desktop Mobile Only */
     .desktop-only,
     .only-desktop {
-        display: none;
+        display: none !important;
     }
     .mobile-only,
     .only-mobile {
-        display: block;
+        display: block !important;
     }
     .support-columns {
         border: none;
@@ -4459,7 +4459,7 @@ body .gform_wrapper .gform_ajax_spinner {
     }
     .post-teaser .entry-title,
     .post-teaser .entry-content {
-        margin-left: auto;
+        // margin-left: auto;
         margin-right: auto;
         width: 230px;
     }

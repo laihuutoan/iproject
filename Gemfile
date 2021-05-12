@@ -95,6 +95,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Markdown editor
+gem 'coderay'
 gem 'simplemde-rails'
 
 # Pagination
@@ -114,3 +115,6 @@ gem 'friendly_id', '~> 5.4.0'
 
 # Votable
 gem 'acts_as_votable'
+
+# Table of content
+gem 'redcarpet'

@@ -18,6 +18,12 @@
     </label>
   </div>
   <div class='field'>
+    <label for='post_feature_image_mobile'>
+      <%= image_tag(f.object.feature_image_mobile.attached? ? f.object.feature_image_mobile : 'preview-mobile.png', id: 'post_feature_image_mobile_preview') %>
+      <%= f.file_field :feature_image_mobile, style: 'display:none' %>
+    </label>
+  </div>
+  <div class='field'>
     <%= f.text_area :content, id: 'customMDE' %>
   </div>
 

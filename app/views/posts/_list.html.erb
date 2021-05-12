@@ -1,9 +1,10 @@
 <% if params[:commit].present? %>
   Search results for: <span class="post-query"><%= params[:query].present? ? params[:query] : 'All' %></span>
 <% end %>
-<% @posts.each do |post| %>
-  <div class="post-teaser post type-post status-publish format-standard has-post-thumbnail hentry category-minimalism entry">
-    <%= link_to image_tag(post.feature_image.attached? ? post.feature_image.variant(resize: "230x230^", crop: '230x230+0+0') : 'post-feature-list.png', width:"230", height:"230", alt: post.title, title: post.title, loading: "lazy", class: "attachment-teaser-post-image size-teaser-post-image wp-post-image"), post, class: "wp-post-image-anchor" %>
+<% @posts.each_with_index do |post, idx| %>
+  <div class="post-teaser post type-post status-publish format-standard has-post-thumbnail hentry category-minimalism entry <%= 'first-post' if idx == 0 %>">
+    <%= link_to image_tag(post.feature_image.attached? ? post.feature_image.variant(resize: "230x230^", crop: '230x230+0+0') : 'post-feature-list.png', width:"230", height:"230", alt: post.title, title: post.title, loading: "lazy", class: "attachment-teaser-post-image size-teaser-post-image wp-post-image"), post, class: "wp-post-image-anchor desktop-only" %>
+    <%= link_to image_tag(post.feature_image_mobile.attached? ? post.feature_image_mobile.variant(resize: "670x276^", crop: '670x276+0+0') : 'post-feature-list.png', width:"670", height:"276", alt: post.title, title: post.title, loading: "lazy", class: "attachment-teaser-post-image size-teaser-post-image wp-post-image"), post, class: "wp-post-image-anchor mobile-only" %>
     <h2 class="entry-title">
       <%= link_to post.title, post, class: "entry-title-link", rel: "bookmark" %>
     </h2>
