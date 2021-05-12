@@ -117,4 +117,8 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'acts_as_votable'
 
 # Table of content
-gem 'redcarpet'
+gem 'redcarpet', github: 'vmg/redcarpet'
+gem 'coderay'
+
+# Webpacker
+gem 'webpacker', '~> 4.x'

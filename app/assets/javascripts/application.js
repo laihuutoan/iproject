@@ -16,6 +16,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require bootstrap-sprockets
 //= require ahoy
 //= require simplemde.min
 //= require themins

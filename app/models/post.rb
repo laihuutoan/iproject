@@ -32,6 +32,15 @@ class Post < ApplicationRecord
   end
 
   def content_html
+    # coderayified = CodeRayify.new(filter_html: true, hard_wrap: true)
+    # options = {
+    #   fenced_code_blocks: true,
+    #   no_intra_emphasis: true,
+    #   autolink: true,
+    #   strikethrough: true,
+    #   lax_html_blocks: true,
+    #   superscript: true
+    # }
     options = {
       autolink: true,
       no_intra_emphasis: true,
@@ -46,6 +55,8 @@ class Post < ApplicationRecord
       tables: true,
       emoji: true
     }
+    # markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
+    # markdown_to_html.render(self.content).html_safe
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(with_toc_data: true), options)
     @markdown.render(self.content).html_safe
   end

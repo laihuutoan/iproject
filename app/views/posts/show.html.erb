@@ -3,18 +3,18 @@
 <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-minimalism entry">
   <h1 class="entry-title"><%= @post.title %></h1>
   <div class="post-info">
-    <span class="author vcard"><span class="fn"><%= @post.created_at.strftime("%b #{@post.created_at.day.ordinalize}, %Y") %></span></span> ·
+    <span class="author vcard"><span class="fn"><%= @post.created_at.strftime("%b #{@post.created_at.day.ordinalize}, %Y") %></span></span>
     <% if @post.author.present? %>
-      By <span class="author vcard"><span class="fn"><%= @post.author.full_name %></span></span> ·
+       · By <span class="author vcard"><span class="fn"><%= @post.author.full_name %></span></span>
     <% end %>
-    <span class="follow-links"><%= @post.content.reading_time format: :approx %> read</span> ·
+    <!--  · <span class="follow-links"><%= @post.content.reading_time format: :approx %> read</span> ·
     <span title="Views: <%= @post.views %>"><i class="fa fa-eye"></i> <%= @post.views %></span> ·
     <span class="scroll-to-comments" title="Scroll to Comments"><i class="fa fa-comments"></i> <%= @post.comments.count %></span>
     <% if user_signed_in? %>
        ·
       <span id="like-post"><i class="<%= @liked ? 'fas' : 'far' %> fa-heart"></i> <%= @post.votes_for.size %></span>
       <input type="hidden" id="postId" name="postId" value="<%= @post.slug %>">
-    <% end %>
+    <% end %> -->
   </div>
   <% if @post.feature_image.attached? %>
     <%= image_tag url_for(@post.feature_image), class: "attachment-post-image size-post-image wp-post-image desktop-only", alt: @post.title, width: "500", height: "333", title: @post.title, sizes: "(max-width: 500px) 100vw, 500px" %>
@@ -22,7 +22,7 @@
   <% if @post.feature_image_mobile.attached? %>
     <%= image_tag url_for(@post.feature_image_mobile), class: "attachment-post-image size-post-image wp-post-image mobile-only", alt: @post.title, width: "500", height: "333", title: @post.title, sizes: "(max-width: 500px) 100vw, 500px" %>
   <% end %>
-  <div class="entry-content markdown">
+  <div class="entry-content">
     <%= @post.content_toc %>
     <%= @post.content_html %>
   </div>
