@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_044651) do
+ActiveRecord::Schema.define(version: 2021_05_12_105746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 2021_04_29_044651) do
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.text "content"
+    t.boolean "is_correct"
+    t.text "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "created_by_id"
@@ -114,6 +123,13 @@ ActiveRecord::Schema.define(version: 2021_04_29_044651) do
     t.string "slug"
     t.bigint "ahoy_visit_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "category_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subscribers", force: :cascade do |t|
