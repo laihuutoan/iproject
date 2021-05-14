@@ -53,6 +53,7 @@ gem 'wisper', '2.0.0'
 # Setting
 gem 'config'
 
+gem 'unicorn'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
@@ -66,6 +67,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Capistrano
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-rvm'
 end
 
 group :test do
