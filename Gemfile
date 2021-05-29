@@ -47,6 +47,9 @@ gem 'font_awesome5_rails'
 # Tracking visits
 gem 'ahoy_matey'
 
+# Tracking geocoder
+gem 'maxminddb'
+
 # Pub/Sub
 gem 'wisper', '2.0.0'
 
@@ -128,3 +131,7 @@ gem 'coderay'
 
 # Webpacker
 gem 'webpacker', '~> 4.x'
+
+# Active Job
+gem 'sidekiq', '~> 5.1'
+gem 'redis-namespace'

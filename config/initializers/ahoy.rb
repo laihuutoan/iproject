@@ -7,6 +7,8 @@ Ahoy.api = false
 # set to true for geocoding
 # we recommend configuring local geocoding first
 # see https://github.com/ankane/ahoy#geocoding
-Ahoy.geocode = false
+Ahoy.geocode = true
 
-Ahoy.visit_duration = 3.seconds
+Ahoy.visit_duration = 5.seconds
+
+Ahoy.job_queue = :low

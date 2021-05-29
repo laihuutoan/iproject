@@ -1,0 +1,25 @@
+:concurrency: 1
+development:
+  :queues:
+    - 'iproject_development_default'
+    - 'iproject_development_mailers'
+    - critical
+    - default
+    - low
+    - ahoy
+staging:
+  :queues:
+    - 'iproject_staging_default'
+    - 'iproject_staging_mailers'
+    - critical
+    - default
+    - low
+    - ahoy
+production:
+  :queues:
+    - 'iproject_production_default'
+    - 'iproject_production_mailers'
+    - critical
+    - default
+    - low
+    - ahoy

@@ -17,6 +17,20 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # how many old releases do we want to keep, not much
 set :keep_releases, 3
 
+# Sidekiq
+set :sidekiq_role, :app
+set :sidekiq_concurrency, 25
+set :sidekiq_pid, "#{shared_path}/tmp/pids/sidekiq.pid"
+set :sidekiq_log, "#{release_path}/log/sidekiq.log"
+# set :sidekiq_queue, %w(default mailers task_deadline deal_sorting)
+if fetch(:stage) == :production
+  set :sidekiq_env, 'production'
+  set :sidekiq_queue, %w(iproject_production_default iproject_production_mailers)
+else
+  set :sidekiq_env, 'staging'
+  set :sidekiq_queue, %w(iproject_staging_default iproject_staging_mailers)
+end
+
 # files we want symlinking to specific entries in shared
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', '.env')
 
